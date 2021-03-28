@@ -20,18 +20,11 @@ export default class View{
    
     taskCompleted(id){
         this.model.taskCompleted(id);
-        const todo = this.model.findTodoById(id);
-        let task;
-        if (todo.completed){
-             task = todo.task.strike();
-        }
-        else{
-            task = todo.task;
-        }
-      
-        document.getElementById(id).children[0].innerHTML = task;
-        
+        const todo = this.model.findTodoById(id);      
+        //mark or unmark task
+        document.getElementById(id).children[0].innerHTML = todo.completed ? todo.task.strike() : todo.task;   
     }
+
 
     addTodo(task){
         const todo = this.model.addTodo(task)
@@ -42,30 +35,27 @@ export default class View{
 
         //crea la fila
         const row = table.insertRow();
-        row.setAttribute('id', todo.id)            
+        row.setAttribute('id', todo.id);          
         let task = todo.task;
+        task = todo.completed ? task.strike() : todo.task;
 
-        //si la tarea esta completa, tacha la task
-        if (todo.completed){
-            task = task.strike();
-        }
-       
+        //inserta la tarea 
         row.innerHTML = `
         <td>${task}</td>         
         <td></td>      
         <td></td>         
          `;
 
-   
         //crea y agrega un checkbox
         const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
+        checkbox.classList.add('checkbox');
         checkbox.checked = todo.completed;
         checkbox.onclick = () => this.taskCompleted(todo.id);
         row.children[1].appendChild(checkbox);
 
         //crea y agrega un boton de eliminar
         const removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn', 'btn-danger', 'btn-sm',);
         removeBtn.innerHTML = '<i class="fas fa-trash"></i>';
         removeBtn.onclick = () => this.removeTodo(todo.id);   
         row.children[2].appendChild(removeBtn);
