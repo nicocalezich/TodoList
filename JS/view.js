@@ -42,13 +42,13 @@ export default class View{
         //inserta la tarea 
         row.innerHTML = `
         <td>${task}</td>         
-        <td></td>      
+        <td class="center-text"></td>      
         <td></td>         
          `;
 
         //crea y agrega un checkbox
         const checkbox = document.createElement('input');
-        checkbox.classList.add('checkbox');
+        checkbox.type = 'checkbox'
         checkbox.checked = todo.completed;
         checkbox.onclick = () => this.taskCompleted(todo.id);
         row.children[1].appendChild(checkbox);
@@ -56,7 +56,7 @@ export default class View{
         //crea y agrega un boton de eliminar
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm',);
-        removeBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        removeBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
         removeBtn.onclick = () => this.removeTodo(todo.id);   
         row.children[2].appendChild(removeBtn);
         }

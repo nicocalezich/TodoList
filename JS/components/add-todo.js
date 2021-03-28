@@ -6,15 +6,14 @@ constructor(){
 
 onClick(callback){
     this.btn.onclick = () => {
-        if(input.value === ''){
-            alert("Task is required");
+        if(input.value.length == 0){
+            alert("You must enter a task");
             return;
         }
         else{
             callback(this.input.value);
             this.input.value = "";
+         }
         }
     }
-}
-
 }

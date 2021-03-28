@@ -12,5 +12,19 @@
     text-align: left;
     border-collapse: separate;
     border-spacing: 10px 5px;    
+    width: 25%;
+    
+}
+
+#input{
+    width: 21%;
+}
+
+i{
+    color: black;
+}
+
+.center-text{
+    text-align: center;    
 }
 
