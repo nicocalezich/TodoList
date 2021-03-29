@@ -1,7 +1,7 @@
 # TodoList
 
-This is just a To Do list, created for JS practice. 
+This is just a to do List, created for JS practice. 
 
-Its use HTML5, CSS3, BOOSTRAP4 and JavaScript.
+Its use html, css, bootstrap and JavaScript.
 
-Todo's are storage on localstorage at chrome
+Todo's are storage in localstorage at chrome
