@@ -2,6 +2,10 @@ export default class Model {
 
     constructor(){
         this.view = null;
+        this.darkTheme = JSON.parse(localStorage.getItem('isDark'));
+        if (!this.darkTheme){
+            this.darkTheme = false;
+        }
         this.todos = JSON.parse(localStorage.getItem('todos'));
         if (!this.todos || this.todos.length < 1){
             this.todos = [
@@ -16,6 +20,19 @@ export default class Model {
             this.currentId = this.todos[this.todos.length-1].id + 1;
         }
       
+    }
+
+    getDarktheme(){
+        return this.darkTheme;
+    }
+
+    setDartheme(darkTheme){          
+        this.darkTheme = darkTheme;
+        this.saveDarktheme();       
+    }
+  
+    saveDarktheme(){
+        localStorage.setItem('isDark', JSON.stringify(this.darkTheme));
     }
 
     setView(view){

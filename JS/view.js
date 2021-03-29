@@ -7,15 +7,19 @@ export default class View{
         this.table = document.getElementById('table');
         this.addTodoForm = new AddTodo();    
         this.addTodoForm.onClick((todo) => this.addTodo(todo));  
-        let isDark = false;
+        this.isDark = true;
         this.theme = document.getElementById('theme');
-        this.theme.onclick = () => this.isDark ? this.switchToLightMode() : this.switchToDarkMode(); 
+        this.theme.onclick = () => {
+            this.model.getDarktheme() ? this.switchToLightMode() : this.switchToDarkMode(); 
+            this.model.setDartheme(this.isDark);
+            console.log(this.model.getDarktheme())
+        } 
     }
 
     setModel(model){
         this.model = model;
     }
-
+ 
     switchToDarkMode(){
         document.body.style.backgroundColor = "black";
         document.getElementById("title").style.color = "white";
