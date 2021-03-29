@@ -54,8 +54,8 @@ export default class View{
 
         //crea y agrega un boton de eliminar
         const removeBtn = document.createElement('button');
-        removeBtn.classList.add('btn', 'btn-danger', 'btn-sm',);
-        removeBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        removeBtn.classList.add('btn', 'btn-danger', 'btn-sm','delete');
+        removeBtn.innerHTML = '<i id="delete-icon" class="fas fa-times"></i>';
         removeBtn.onclick = () => this.removeTodo(todo.id);   
         row.children[2].appendChild(removeBtn);
         }

@@ -15,10 +15,15 @@ body{
 .table-container table{
     margin: 0 auto;
     text-align: left;
-    border-collapse: separate;
-    border-spacing: 10px 5px;    
+      
     width: 25%;   
+   
 }
+
+table td{
+    border-bottom: 1.2px solid #333333;
+}
+
 
 #input{
     width: 21%;
@@ -37,6 +42,15 @@ i{
    height: 50px;
    background: none;
    border: none;
+}
+
+.delete{
+    background: none;
+    border: none;
+}
+
+#delete-icon{
+    color: red;
 }
 
 
