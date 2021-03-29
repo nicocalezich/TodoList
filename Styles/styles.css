@@ -1,6 +1,7 @@
 body{
     background-color: white;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23aba9ac' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    font-family: 'Montserrat', sans-serif;
 }
 
 .container{
@@ -24,7 +25,6 @@ table td{
     border-bottom: 1.2px solid #333333;
 }
 
-
 #input{
     width: 21%;
 }
@@ -38,7 +38,7 @@ i{
 }
 
 #theme{
-   width: 50px;
+   width: 25px;
    height: 50px;
    background: none;
    border: none;
@@ -52,5 +52,8 @@ i{
 #delete-icon{
     color: red;
 }
+
+ 
+
 
 

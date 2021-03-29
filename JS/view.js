@@ -6,11 +6,36 @@ export default class View{
         this.model = null;
         this.table = document.getElementById('table');
         this.addTodoForm = new AddTodo();    
-        this.addTodoForm.onClick((todo) => this.addTodo(todo));   
+        this.addTodoForm.onClick((todo) => this.addTodo(todo));  
+        let isDark = false;
+        this.theme = document.getElementById('theme');
+        this.theme.onclick = () => this.isDark ? this.switchToLightMode() : this.switchToDarkMode(); 
     }
 
     setModel(model){
         this.model = model;
+    }
+
+    switchToDarkMode(){
+        document.body.style.backgroundColor = "black";
+        document.getElementById("title").style.color = "white";
+        document.getElementById("table").style.color = "white";
+        document.getElementById("icon-theme").style.color = "white";  
+        document.getElementById("label-theme").innerText = "Light mode";
+        document.getElementById("label-theme").style.color = "white";
+        document.getElementById("add-icon").style.color = "black";
+        this.isDark = true;
+    }
+
+    switchToLightMode(){
+        document.body.style.backgroundColor = "white";
+        document.getElementById("title").style.color = "black";
+        document.getElementById("table").style.color = "black";
+        document.getElementById("icon-theme").style.color = "black";
+        document.getElementById("label-theme").innerText = "Dark mode";
+        document.getElementById("label-theme").style.color = "black"; 
+        document.getElementById("add-icon").style.color = "white";
+        this.isDark = false;
     }
 
     render(){
@@ -42,11 +67,12 @@ export default class View{
         row.innerHTML = `
         <td>${task}</td>         
         <td class="center-text"></td>      
-        <td></td>         
+        <td title="Delete task"></td>         
          `;
 
         //crea y agrega un checkbox
         const checkbox = document.createElement('input');
+        checkbox.classList.add('form-check-label')
         checkbox.type = 'checkbox'
         checkbox.checked = todo.completed;
         checkbox.onclick = () => this.taskCompleted(todo.id);
