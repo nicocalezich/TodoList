@@ -3,7 +3,7 @@ export default class Model {
     constructor(){
         this.view = null;
         this.darkTheme = JSON.parse(localStorage.getItem('isDark'));
-        if (!this.darkTheme){
+        if (this.darkTheme === null){
             this.darkTheme = false;
         }
         this.todos = JSON.parse(localStorage.getItem('todos'));
@@ -22,16 +22,16 @@ export default class Model {
       
     }
 
-    getDarktheme(){
+    getTheme(){
         return this.darkTheme;
     }
 
-    setDartheme(darkTheme){          
-        this.darkTheme = darkTheme;
-        this.saveDarktheme();       
+    setTheme(isDark){          
+        this.darkTheme = isDark;
+        this.saveTheme();     
     }
   
-    saveDarktheme(){
+    saveTheme(){
         localStorage.setItem('isDark', JSON.stringify(this.darkTheme));
     }
 

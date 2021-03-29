@@ -7,13 +7,18 @@ export default class View{
         this.table = document.getElementById('table');
         this.addTodoForm = new AddTodo();    
         this.addTodoForm.onClick((todo) => this.addTodo(todo));  
-        this.isDark = true;
+        this.isDark = null;
         this.theme = document.getElementById('theme');
         this.theme.onclick = () => {
-            this.model.getDarktheme() ? this.switchToLightMode() : this.switchToDarkMode(); 
-            this.model.setDartheme(this.isDark);
-            console.log(this.model.getDarktheme())
+            this.isDark ? this.switchToLightMode() : this.switchToDarkMode(); 
+            this.model.setTheme(this.isDark);
+            console.log(this.model.getTheme());
         } 
+    }
+
+    loadTheme(){
+        this.isDark = this.model.getTheme();
+        this.isDark ? this.switchToDarkMode() : this.switchToLightMode();
     }
 
     setModel(model){
@@ -21,6 +26,7 @@ export default class View{
     }
  
     switchToDarkMode(){
+        this.isDark = true;
         document.body.style.backgroundColor = "black";
         document.getElementById("title").style.color = "white";
         document.getElementById("table").style.color = "white";
@@ -28,10 +34,11 @@ export default class View{
         document.getElementById("label-theme").innerText = "Light mode";
         document.getElementById("label-theme").style.color = "white";
         document.getElementById("add-icon").style.color = "black";
-        this.isDark = true;
+        
     }
 
     switchToLightMode(){
+        this.isDark = false;
         document.body.style.backgroundColor = "white";
         document.getElementById("title").style.color = "black";
         document.getElementById("table").style.color = "black";
@@ -39,12 +46,13 @@ export default class View{
         document.getElementById("label-theme").innerText = "Dark mode";
         document.getElementById("label-theme").style.color = "black"; 
         document.getElementById("add-icon").style.color = "white";
-        this.isDark = false;
+       
     }
 
     render(){
         const todos = this.model.getTodos();
         todos.forEach((todo) => this.createRow(todo));
+        this.loadTheme();
     }
    
     taskCompleted(id){
