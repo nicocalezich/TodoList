@@ -6,7 +6,7 @@ export default class View{
         this.model = null;
         this.table = document.getElementById('table');
         this.addTodoForm = new AddTodo();    
-        this.addTodoForm.onClick((todo) => this.addTodo(todo));         
+        this.addTodoForm.onClick((todo) => this.addTodo(todo));   
     }
 
     setModel(model){
@@ -24,7 +24,6 @@ export default class View{
         //mark or unmark task
         document.getElementById(id).children[0].innerHTML = todo.completed ? todo.task.strike() : todo.task;   
     }
-
 
     addTodo(task){
         const todo = this.model.addTodo(task)
