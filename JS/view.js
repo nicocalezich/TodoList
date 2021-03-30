@@ -77,9 +77,9 @@ export default class View{
 
         //inserta la tarea 
         row.innerHTML = `
-        <td>${task}</td>         
-        <td class="center-text"></td>      
-        <td title="Delete task"></td>         
+        <td class="col-xs-7">${task}</td>         
+        <td class="col-xs-3" id="center-text"></td>      
+        <td class="col-xs-7" title="Delete task"></td>         
          `;
 
         //crea y agrega un checkbox

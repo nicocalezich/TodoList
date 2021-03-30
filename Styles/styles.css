@@ -20,7 +20,7 @@ body{
 .table-container table{
     margin: 0 auto;
     text-align: left;   
-    width: 25%;   
+    width: 50%;  
    
 }
 
@@ -28,15 +28,11 @@ table td{
     border-bottom: 1.2px solid #333333;
 }
 
-#input{
-    width: 21%;
-}
-
 i{
     color: black;
 }
 
-.center-text{
+#center-text{
     text-align: center;    
 }
 
@@ -54,6 +50,15 @@ i{
 
 #delete-icon{
     color: red;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .table-container table{
+ 
+        width: 90%;  
+       
+    }
 }
 
  
