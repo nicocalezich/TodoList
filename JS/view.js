@@ -24,6 +24,15 @@ export default class View{
     setModel(model){
         this.model = model;
     }
+
+    scrollReveal(){
+        ScrollReveal().reveal('.titulo');
+        ScrollReveal().reveal('.task-container');
+        ScrollReveal().reveal('.table-container');
+        ScrollReveal().reveal('.col-xs-7',{delay: 100});
+        ScrollReveal().reveal('.col-xs-3',{delay: 100});
+        ScrollReveal().reveal('.col-xs-7',{delay: 100});
+    }
  
     switchToDarkMode(){
         this.isDark = true;
@@ -53,6 +62,7 @@ export default class View{
         const todos = this.model.getTodos();
         todos.forEach((todo) => this.createRow(todo));
         this.loadTheme();
+        this.scrollReveal();
     }
    
     taskCompleted(id){
